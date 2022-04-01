@@ -2,6 +2,9 @@ import { Getters, State } from '@/models/storeModel'
 import { GetterTree } from 'vuex'
 
 export const getters: GetterTree<State, State> & Getters = {
+  getTodosCount: (state) => {
+    return state.todos.length
+  },
   getAllTodos: (state) => {
     return state.todos
   },
