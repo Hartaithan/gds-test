@@ -1,5 +1,7 @@
-import { State } from '@/models/storeModel'
+import { FilterTypes, State } from '@/models/storeModel'
 
 export const state: State = {
-  todos: []
+  filter: FilterTypes.All,
+  todos: [],
+  unfiltered: []
 }

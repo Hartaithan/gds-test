@@ -17,5 +17,8 @@ export const mutations: MutationTree<State> & Mutations = {
     } else {
       console.error('todo not found')
     }
+  },
+  [MutationType.ChangeFilter] (state, type) {
+    state.filter = type
   }
 }
