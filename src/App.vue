@@ -15,12 +15,12 @@ import Header from './components/Header.vue'
 import Filters from './components/Filters.vue'
 import { useStore } from './store'
 import { onBeforeMount } from 'vue'
-import { MutationType } from './models/storeModel'
+import { ActionTypes } from './store/actions'
 
 const store = useStore()
 
 onBeforeMount(() => {
-  store.commit(MutationType.Initial)
+  store.dispatch(ActionTypes.Initial)
 })
 </script>
 

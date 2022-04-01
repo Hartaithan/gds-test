@@ -1,5 +1,23 @@
 import { MutationTree } from 'vuex'
-import { ITodo, Mutations, MutationType, State } from '../models/storeModel'
+import { FilterTypes, ITodo, State } from '../models/storeModel'
+
+export enum MutationType {
+  Initial = 'INITIALISE_STORE',
+  AddTodo = 'ADD_TODO',
+  DeleteTodo = 'DELETE_TODO',
+  ToggleTodo = 'TOGGLE_TODO',
+  ChangeFilter = 'CHANGE_FILTER',
+  ClearCompleted = 'CLEAR_COMPLETED_TODOS',
+}
+
+export type Mutations = {
+  [MutationType.Initial](state: State): void;
+  [MutationType.AddTodo](state: State, title: string): void;
+  [MutationType.DeleteTodo](state: State, id: number): void;
+  [MutationType.ToggleTodo](state: State, id: number): void;
+  [MutationType.ChangeFilter](state: State, type: FilterTypes): void;
+  [MutationType.ClearCompleted](state: State): void;
+};
 
 export const mutations: MutationTree<State> & Mutations = {
   [MutationType.Initial] (state) {

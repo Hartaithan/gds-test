@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import { MutationType } from '@/models/storeModel'
 import { useStore } from '@/store'
+import { ActionTypes } from '@/store/actions'
 import { ref } from 'vue'
 
 const store = useStore()
@@ -24,14 +24,14 @@ const input = ref('')
 
 const handleOnClick = () => {
   if (input.value !== '') {
-    store.commit(MutationType.AddTodo, input.value)
+    store.dispatch(ActionTypes.AddTodo, input.value)
     input.value = ''
   }
 }
 
 const handleKeyDown = (e: KeyboardEvent) => {
   if (e.key === 'Enter' && input.value !== '') {
-    store.commit(MutationType.AddTodo, input.value)
+    store.dispatch(ActionTypes.AddTodo, input.value)
     input.value = ''
   }
 }

@@ -12,19 +12,20 @@
 </template>
 
 <script setup lang="ts">
-import { FilterTypes, MutationType } from '@/models/storeModel'
+import { FilterTypes } from '@/models/storeModel'
 import { useStore } from '@/store'
+import { ActionTypes } from '@/store/actions'
 import { computed } from '@vue/reactivity'
 
 const store = useStore()
 const completedTodosLength = computed(() => store.getters.getCompletedTodosCount)
 
 const changeFilter = (type: FilterTypes) => {
-  store.commit(MutationType.ChangeFilter, type)
+  store.dispatch(ActionTypes.ChangeFilter, type)
 }
 
 const clearCompleted = () => {
-  store.commit(MutationType.ClearCompleted)
+  store.dispatch(ActionTypes.ClearCompleted)
 }
 </script>
 

@@ -25,8 +25,9 @@
 
 <script setup lang="ts">
 import { defineProps, PropType, ref } from 'vue'
-import { MutationType, ITodo } from '@/models/storeModel'
+import { ITodo } from '@/models/storeModel'
 import { useStore } from '@/store'
+import { ActionTypes } from '@/store/actions'
 
 const store = useStore()
 const props = defineProps({
@@ -38,11 +39,11 @@ const props = defineProps({
 const checked = ref(props.todo.complete)
 
 const toggleTodo = () => {
-  store.commit(MutationType.ToggleTodo, props.todo.id)
+  store.dispatch(ActionTypes.ToggleTodo, props.todo.id)
 }
 
 const deleteTodo = () => {
-  store.commit(MutationType.DeleteTodo, props.todo.id)
+  store.dispatch(ActionTypes.DeleteTodo, props.todo.id)
 }
 </script>
 

@@ -2,6 +2,7 @@ import { createLogger, createStore } from 'vuex'
 import { mutations } from './mutations'
 import { State, Store } from '../models/storeModel'
 import { state } from './state'
+import { actions } from './actions'
 import { getters } from './getters'
 
 export const store = createStore<State>({
@@ -9,7 +10,7 @@ export const store = createStore<State>({
   state,
   getters,
   mutations,
-  actions: {},
+  actions,
   modules: {}
 })
 
