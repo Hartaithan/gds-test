@@ -20,5 +20,8 @@ export const mutations: MutationTree<State> & Mutations = {
   },
   [MutationType.ChangeFilter] (state, type) {
     state.filter = type
+  },
+  [MutationType.ClearCompleted] (state) {
+    state.todos = state.todos.filter((todo) => todo.complete === false)
   }
 }

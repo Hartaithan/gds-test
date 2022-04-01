@@ -8,7 +8,7 @@
       >{{ button[0] }}</button>
     </div>
     <div class="filters_right">
-      <button>Clear completed</button>
+      <button @click="clearCompleted">Clear completed</button>
     </div>
   </div>
 </template>
@@ -33,6 +33,10 @@ const changeFilter = (type: string) => {
     default:
       break
   }
+}
+
+const clearCompleted = () => {
+  store.commit(MutationType.ClearCompleted)
 }
 </script>
 

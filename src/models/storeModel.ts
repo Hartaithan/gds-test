@@ -30,6 +30,7 @@ export enum MutationType {
   DeleteTodo = 'DELETE_TODO',
   ToggleTodo = 'TOGGLE_TODO',
   ChangeFilter = 'CHANGE_FILTER',
+  ClearCompleted = 'CLEAR_COMPLETED_TODOS',
 }
 
 export type Mutations = {
@@ -37,6 +38,7 @@ export type Mutations = {
   [MutationType.DeleteTodo](state: State, id: number): void;
   [MutationType.ToggleTodo](state: State, id: number): void;
   [MutationType.ChangeFilter](state: State, type: FilterTypes): void;
+  [MutationType.ClearCompleted](state: State): void;
 };
 
 export type Store = Omit<VuexStore<State>, 'getters' | 'commit'> & {
