@@ -4,12 +4,14 @@
       <p v-if="todos > 0">Hello, u have {{ todos }} tasks 🙂</p>
       <p v-else>Hello, u don't have any tasks 😒</p>
     </div>
+    <ViewSwitch />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useStore } from '@/store'
 import { computed } from '@vue/reactivity'
+import ViewSwitch from './ViewSwitch.vue'
 
 const store = useStore()
 const todos = computed(() => store.getters.getTodosCount)
