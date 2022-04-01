@@ -46,7 +46,8 @@ const deleteTodo = () => {
 .list-item {
   display: flex;
   align-items: center;
-  height: 50px;
+  padding: 10px 0;
+  min-height: 40px;
   width: 100%;
   background: #141414;
   border-radius: 8px;
