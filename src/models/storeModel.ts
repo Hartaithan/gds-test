@@ -18,6 +18,8 @@ export enum MutationType {
 
 export type Mutations = {
   [MutationType.AddTodo](state: State, title: string): void;
+  [MutationType.DeleteTodo](state: State, id: number): void;
+  [MutationType.ToggleTodo](state: State, id: number): void;
 };
 
 export type Store = Omit<VuexStore<State>, 'commit'> & {
