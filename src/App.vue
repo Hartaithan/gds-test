@@ -1,9 +1,11 @@
 <template>
   <Header />
+  <Input />
   <router-view />
 </template>
 
 <script setup lang="ts">
+import Input from './components/Input.vue'
 import Header from './components/Header.vue'
 </script>
 
