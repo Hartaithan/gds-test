@@ -1,12 +1,7 @@
 <template>
   <div class="list-item">
-    <input
-      class="list-item__checkbox"
-      type="checkbox"
-      :value="props.todo.complete"
-      @change="toggleTodo"
-    />
-    <p class="list-item__title" :class="{ completed: props.todo.complete }">{{ props.todo.title }}</p>
+    <input class="list-item__checkbox" type="checkbox" v-model="checked" @change="toggleTodo" />
+    <p class="list-item__title" :class="{ completed: checked }">{{ props.todo.title }}</p>
     <button class="list-item__delete" @click="deleteTodo">
       <svg
         width="24px"
@@ -25,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, PropType } from 'vue'
+import { defineProps, PropType, ref } from 'vue'
 import { MutationType, ITodo } from '@/models/storeModel'
 import { useStore } from '@/store'
 
@@ -36,6 +31,7 @@ const props = defineProps({
     required: true
   }
 })
+const checked = ref(props.todo.complete)
 
 const toggleTodo = () => {
   store.commit(MutationType.ToggleTodo, props.todo.id)
