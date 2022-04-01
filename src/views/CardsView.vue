@@ -43,4 +43,14 @@ const completedTodos = computed(() => store.getters.getCompletedTodos)
     margin-top: 20px;
   }
 }
+@media (max-width: 1200px) {
+  .cards-view {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .cards-view {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 </style>

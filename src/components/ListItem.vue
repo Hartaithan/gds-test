@@ -55,8 +55,9 @@ const deleteTodo = () => {
     margin-bottom: 10px;
   }
   &__checkbox {
+    align-self: flex-start;
     margin-left: 15px;
-    transform: scale(1.5);
+    transform: scale(1.5) translateY(4px);
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);

@@ -22,7 +22,6 @@ onBeforeMount(() => {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
 * {
   padding: 0;
   margin: 0;
@@ -35,20 +34,23 @@ onBeforeMount(() => {
   -moz-font-feature-settings: "lnum";
   font-feature-settings: "lnum";
 }
-
 html,
 body,
 #app {
   height: 100%;
   width: 100%;
 }
-
 #app {
   max-width: 1080px;
   margin: 0 auto;
 }
-
 body {
   background: #070707;
+}
+@media (max-width: 1200px) {
+  #app {
+    max-width: 90%;
+    margin-top: 5px;
+  }
 }
 </style>
