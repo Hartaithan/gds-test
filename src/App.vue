@@ -2,7 +2,11 @@
   <Header />
   <Input />
   <Filters />
-  <router-view />
+  <router-view v-slot="{ Component }">
+    <Transition name="fade" mode="out-in">
+      <Component :is="Component" />
+    </Transition>
+  </router-view>
 </template>
 
 <script setup lang="ts">
@@ -52,5 +56,14 @@ body {
     max-width: 90%;
     margin-top: 5px;
   }
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
