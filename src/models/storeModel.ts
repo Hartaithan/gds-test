@@ -20,6 +20,7 @@ export type State = {
 
 export type Getters = {
   getTodosCount(state: State): number;
+  getCompletedTodosCount(state: State): number;
   getAllTodos(state: State): ITodo[];
   getActiveTodos(state: State): ITodo[];
   getCompletedTodos(state: State): ITodo[];

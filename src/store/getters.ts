@@ -5,6 +5,9 @@ export const getters: GetterTree<State, State> & Getters = {
   getTodosCount: (state) => {
     return state.todos.length
   },
+  getCompletedTodosCount: (state) => {
+    return state.todos.filter((todo) => todo.complete === true).length
+  },
   getAllTodos: (state) => {
     return state.todos
   },

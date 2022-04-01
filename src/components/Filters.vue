@@ -5,7 +5,7 @@
       <button @click="changeFilter(FilterTypes.Active)">Active</button>
       <button @click="changeFilter(FilterTypes.Completed)">Completed</button>
     </div>
-    <div class="filters_right">
+    <div class="filters_right" v-if="completedTodosLength > 0">
       <button @click="clearCompleted">Clear completed</button>
     </div>
   </div>
@@ -14,8 +14,10 @@
 <script setup lang="ts">
 import { FilterTypes, MutationType } from '@/models/storeModel'
 import { useStore } from '@/store'
+import { computed } from '@vue/reactivity'
 
 const store = useStore()
+const completedTodosLength = computed(() => store.getters.getCompletedTodosCount)
 
 const changeFilter = (type: FilterTypes) => {
   store.commit(MutationType.ChangeFilter, type)
