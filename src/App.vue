@@ -1,12 +1,14 @@
 <template>
   <Header />
   <Input />
+  <Filters />
   <router-view />
 </template>
 
 <script setup lang="ts">
 import Input from './components/Input.vue'
 import Header from './components/Header.vue'
+import Filters from './components/Filters.vue'
 </script>
 
 <style lang="scss">
