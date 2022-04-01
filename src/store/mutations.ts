@@ -9,7 +9,8 @@ export const mutations: MutationTree<State> & Mutations = {
     }
   },
   [MutationType.AddTodo] (state, title) {
-    const id = state.todos.length + 1
+    const id =
+      state.todos.length > 0 ? state.todos[state.todos.length - 1].id + 1 : 1
     const todo: ITodo = { id, title, complete: false }
     state.todos.push(todo)
   },
