@@ -53,14 +53,9 @@
 
 <script setup lang="ts">
 import router from '@/router'
-import { watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-
-watch(() => route.name, () => {
-  console.log('as', route.name)
-})
 
 const switchView = () => {
   if (route.name === 'ListView') {
