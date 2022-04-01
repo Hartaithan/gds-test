@@ -1,11 +1,9 @@
 <template>
   <div class="filters">
     <div class="filters_left">
-      <button
-        v-for="button in Object.entries(FilterTypes)"
-        :key="button[0]"
-        @click="changeFilter(button[1])"
-      >{{ button[0] }}</button>
+      <button @click="changeFilter(FilterTypes.All)">All</button>
+      <button @click="changeFilter(FilterTypes.Active)">Active</button>
+      <button @click="changeFilter(FilterTypes.Completed)">Completed</button>
     </div>
     <div class="filters_right">
       <button @click="clearCompleted">Clear completed</button>
@@ -19,20 +17,8 @@ import { useStore } from '@/store'
 
 const store = useStore()
 
-const changeFilter = (type: string) => {
-  switch (type) {
-    case FilterTypes.All:
-      store.commit(MutationType.ChangeFilter, FilterTypes.All)
-      break
-    case FilterTypes.Active:
-      store.commit(MutationType.ChangeFilter, FilterTypes.Active)
-      break
-    case FilterTypes.Completed:
-      store.commit(MutationType.ChangeFilter, FilterTypes.Completed)
-      break
-    default:
-      break
-  }
+const changeFilter = (type: FilterTypes) => {
+  store.commit(MutationType.ChangeFilter, type)
 }
 
 const clearCompleted = () => {
