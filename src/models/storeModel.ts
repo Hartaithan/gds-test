@@ -15,7 +15,6 @@ export enum FilterTypes {
 export type State = {
   filter: FilterTypes;
   todos: ITodo[];
-  unfiltered: ITodo[];
 };
 
 export type Getters = {
@@ -27,6 +26,7 @@ export type Getters = {
 };
 
 export enum MutationType {
+  Initial = 'INITIALISE_STORE',
   AddTodo = 'ADD_TODO',
   DeleteTodo = 'DELETE_TODO',
   ToggleTodo = 'TOGGLE_TODO',
@@ -35,6 +35,7 @@ export enum MutationType {
 }
 
 export type Mutations = {
+  [MutationType.Initial](state: State): void;
   [MutationType.AddTodo](state: State, title: string): void;
   [MutationType.DeleteTodo](state: State, id: number): void;
   [MutationType.ToggleTodo](state: State, id: number): void;

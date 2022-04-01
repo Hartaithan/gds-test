@@ -9,6 +9,15 @@
 import Input from './components/Input.vue'
 import Header from './components/Header.vue'
 import Filters from './components/Filters.vue'
+import { useStore } from './store'
+import { onBeforeMount } from 'vue'
+import { MutationType } from './models/storeModel'
+
+const store = useStore()
+
+onBeforeMount(() => {
+  store.commit(MutationType.Initial)
+})
 </script>
 
 <style lang="scss">

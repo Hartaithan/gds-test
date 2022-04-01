@@ -13,6 +13,10 @@ export const store = createStore<State>({
   modules: {}
 })
 
+store.subscribe((mutation, state) => {
+  localStorage.setItem('todos', JSON.stringify(state))
+})
+
 export function useStore (): Store {
   return store as Store
 }
